@@ -39,9 +39,12 @@
 
     <!-- Футер -->
     <footer id="inputArea">
-      <img src="../icons/ic_more.svg" alt="more_button" class="icon" />
-      <input id="input" type="text" placeholder="Текстовое сообщение • SMS" />
-      <button id="sendBtn"><img src="../icons/ic_send.svg" alt="send_button" width="30px"/></button>
+      <img src="../icons/ic_more.svg" alt="more_button" class="more" />
+      <div class="inp">
+        <input id="input" type="text" placeholder="Текстовое сообщение • SMS" autocomplete="off" autocorrect="off"
+          autocapitalize="off" name="message" spellcheck="false" />
+        <button id="sendBtn"><img src="../icons/ic_send.svg" alt="send_button" width="25px" /></button>
+      </div>
     </footer>
   </div>
 
