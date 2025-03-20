@@ -76,14 +76,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function insertDateDividerIfNeeded(currentDate) {
-    if (lastDate !== currentDate) {
-      lastDate = currentDate;
+    const lastDivider = [...chat.children]
+      .reverse()
+      .find(el => el.classList && el.classList.contains("date-divider"));
+  
+    if (!lastDivider || lastDivider.textContent !== currentDate) {
       const divider = document.createElement("div");
       divider.className = "date-divider";
       divider.textContent = currentDate;
       chat.appendChild(divider);
     }
   }
+  
 
   function createMessage(cls, content, time) {
     const row = document.createElement("div");
@@ -248,26 +252,48 @@ document.addEventListener("DOMContentLoaded", () => {
   // Функция для сохранения сообщений
   function saveMessages() {
     const messages = [];
-    const messageRows = document.querySelectorAll("#chat .message-row");
-    messageRows.forEach(row => {
-      messages.push({
-        cls: row.classList.contains("from-user") ? "from-user" : "from-system",
-        content: row.querySelector(".message").innerHTML,
-        time: row.querySelector(".message-time").textContent,
-        date: getFormattedDate() // Добавляем дату
-      });
-    });
-    localStorage.setItem("chatMessages1", JSON.stringify(messages)); // Используем другой ключ
+    const chatChildren = chat.children;
+  
+    for (let el of chatChildren) {
+      if (el.classList.contains("date-divider")) {
+        messages.push({
+          type: "divider",
+          date: el.textContent
+        });
+      } else if (el.classList.contains("message-row")) {
+        messages.push({
+          type: "message",
+          cls: el.classList.contains("from-user") ? "from-user" : "from-system",
+          content: el.querySelector(".message").innerHTML,
+          time: el.querySelector(".message-time").textContent
+        });
+      }
+    }
+  
+    localStorage.setItem("chatMessages1", JSON.stringify(messages));
   }
+  
 
   // Функция для загрузки сообщений
   function loadMessages() {
-    const messages = JSON.parse(localStorage.getItem("chatMessages1")) || []; // Используем тот же ключ
-    messages.forEach(msg => {
-      insertDateDividerIfNeeded(msg.date);
-      chat.appendChild(createMessage(msg.cls, msg.content, msg.time));
+    const messages = JSON.parse(localStorage.getItem("chatMessages1")) || [];
+  
+    messages.forEach(item => {
+      if (item.type === "divider") {
+        const divider = document.createElement("div");
+        divider.className = "date-divider";
+        divider.textContent = item.date;
+        chat.appendChild(divider);
+  
+        // Сохраняем последнюю дату, чтобы новые сообщения корректно добавлялись
+        lastDate = item.date;
+  
+      } else if (item.type === "message") {
+        chat.appendChild(createMessage(item.cls, item.content, item.time));
+      }
     });
   }
+  
 
   loadMessages();
 
