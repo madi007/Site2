@@ -16,14 +16,14 @@ self.addEventListener("install", (e) => {
         "./css/all.css",
         "./manifest.json",
         "./icon-message-192.png",
-        "./img/edit_icon.png"
-        "./icons/ic_avatar.svg"
-        "./icons/ic_back.svg"
-        "./icons/ic_delete.svg"
-        "./icons/ic_edit.svg"
-        "./icons/ic_info.svg"
-        "./icons/ic_more.svg"
-        "./icons/ic_send.svg"
+        "./img/edit_icon.png",
+        "./icons/ic_avatar.svg",
+        "./icons/ic_back.svg",
+        "./icons/ic_delete.svg",
+        "./icons/ic_edit.svg",
+        "./icons/ic_info.svg",
+        "./icons/ic_more.svg",
+        "./icons/ic_send.svg",
       ])
     )
   );
