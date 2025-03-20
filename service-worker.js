@@ -1,9 +1,6 @@
-self.addEventListener("install", (e) => {
-  self.skipWaiting();
-  e.waitUntil(
-    caches.open("static").then((cache) =>
-      cache.addAll([
-        "./",
+const CACHE_NAME = 'pwa-cache-v1';
+const urlsToCache = [
+    "./",
         "./index.html",
         "./layouts/1.html",
         "./layouts/2.html",
@@ -25,10 +22,7 @@ self.addEventListener("install", (e) => {
         "./icons/ic_info.svg",
         "./icons/ic_more.svg",
         "./icons/ic_send.svg"
-      ])
-    )
-  );
-});
+];
 
 self.addEventListener('install', event => {
     event.waitUntil(
