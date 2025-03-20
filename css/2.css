@@ -19,11 +19,13 @@ body {
 }
 
 header {
+  -webkit-backdrop-filter: blur(10px); /* Safari, старые версии Chrome */
+  backdrop-filter: blur(10px);         /* Современные браузеры */
+  background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   padding: 10px;
-  background: #050505;
-  border-bottom: 1px solid #333;
   position: fixed;
   top: 0;
   height: 90px;
@@ -78,19 +80,18 @@ header {
   flex: 1;
   overflow-y: auto;
   margin-top: 80px;
-  margin-bottom: 65px;
+  margin-bottom: 120px;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 footer {
   display: flex;
   align-items: center;
-  background: #050505;
+  background: #000000;
   padding: 10px;
-  border-top: 1px solid #333;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -134,7 +135,7 @@ input {
 .message-time {
   font-size: 10px;
   margin: 0 5px;
-  color: #aaa;
+  color: #aaaaaa00;
 }
 
 .date-divider {
@@ -198,3 +199,33 @@ button {
   margin-bottom: 3px;
 }
 
+.inp {
+  display: flex;
+  width: 100%;
+  border: 1px solid #333;
+  border-radius: 25px; /* Для скругления углов */
+}
+
+.inp input {
+  background: #00000000;
+  flex-grow: 1; /* Поле занимает всё доступное пространство */
+  border: none; /* Границы отсутствуют */
+  padding: 5px;
+  outline: none; /* Очертание при фокусе отсутствует */
+}
+
+.inp button {
+  background: #00000000;
+  border: none;
+  padding: 3px;
+  padding-top: 10px;
+  padding-right: 15px;
+  cursor: pointer; /* Курсор в виде указателя */
+}
+
+.more {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  top: 10px;
+}
