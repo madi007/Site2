@@ -1,4 +1,5 @@
 self.addEventListener("install", (e) => {
+  self.skipWaiting();
   e.waitUntil(
     caches.open("static").then((cache) =>
       cache.addAll([
@@ -23,10 +24,14 @@ self.addEventListener("install", (e) => {
         "./icons/ic_edit.svg",
         "./icons/ic_info.svg",
         "./icons/ic_more.svg",
-        "./icons/ic_send.svg",
+        "./icons/ic_send.svg"
       ])
     )
   );
+});
+
+self.addEventListener("activate", (e) => {
+  self.clients.claim();
 });
 
 self.addEventListener("fetch", (e) => {
