@@ -1,0 +1,111 @@
+* {
+    -webkit-tap-highlight-color: transparent; /* iOS/Android синяя подсветка */
+    -webkit-touch-callout: none;             /* Запрет на вызов меню удержания */
+    user-select: none;                       /* Запрет выделения текста */
+    -webkit-user-select: none;
+  }
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  header {
+    padding: 16px;
+    border-bottom: 1px solid #1c1c1e;
+  }
+  
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .edit {
+    font-size: 17px;
+    color: #0a84ff;
+    cursor: pointer;
+  }
+  
+  .edit-icon {
+    width: 30px;
+    height: 30px;
+  }
+  
+  header h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+  
+  .messages {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message {
+    display: flex;
+    align-items: flex-start;
+    padding: 14px 16px;
+    border-bottom: 1px solid #1c1c1e;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .message:hover {
+    background-color: #1a1a1a;
+  }
+  
+  .message img {
+    width: 42px;
+    height: 42px;
+    margin-right: 12px;
+    border-radius: 50%;
+    background-color: #3a3a3c;
+  }
+  
+  .message-content {
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .sender-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .sender {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  .time {
+    font-size: 13px;
+    color: #8e8e93;
+  }
+  
+  .preview {
+    margin-top: 4px;
+    font-size: 15px;
+    color: #8e8e93;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Адаптив */
+  @media (max-width: 500px) {
+    .container {
+      padding: 0 8px;
+    }
+  }
+  
