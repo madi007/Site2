@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#121212">
+  <title>Сообщения</title>
+  <link rel="stylesheet" href="../css/1.css" />
+  <link rel="stylesheet" href="../css/all.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- Хедер -->
+    <header id="mainHeader">
+      <a href="../index.html"><img src="../icons/ic_back.svg" alt="Назад" class="icon" /></a>
+      <img src="../icons/ic_avatar.svg" alt="Аватар" class="avatar" />
+      <span class="username">9909<img src="../icons/ic_info.svg" alt="Информация" width="7px" class="info"></span>
+      <button id="enterSelectionModeBtn">⋮</button>
+    </header>
+
+
+
+    <!-- Хедер при выборе -->
+    <header id="selectionHeader" class="hidden">
+      <span id="selectedCount">Выбрано: 0</span>
+      <button id="cancelSelectionBtn">Отмена</button>
+    </header>
+
+    <!-- Сообщения -->
+    <div class="messages" id="chat"></div>
+
+    <!-- Удаление -->
+    <div id="deleteArea" class="hidden">
+      <button id="deleteSelectedBtn"><img src="../icons/ic_delete.svg" width="30px">Удалить</button>
+    </div>
+
+    <!-- Футер -->
+    <footer id="inputArea">
+      <img src="../icons/ic_more.svg" alt="more_button" class="more" />
+      <div class="inp">
+        <input id="input" type="text" placeholder="Текстовое сообщение • SMS" autocomplete="off" autocorrect="off"
+          autocapitalize="off" name="message" spellcheck="false" />
+        <button id="sendBtn"><img src="../icons/ic_send.svg" alt="send_button" width="25px" /></button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../js/1.js"></script>
+</body>
+
+</html>
