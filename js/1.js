@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function isTicketCode(text) {
-    return /^[0]{0,3}\d{1,3},\d{3}[A-Z]{2}\d{2}$/.test(text.trim());
+    return /^[0]{0,3}\d{1,3},\d{3}[A-Z]{2,3}\d{2}$/.test(text.trim());
   }
 
   function isSevenDigitNumber(text) {
@@ -231,7 +231,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageRows = document.querySelectorAll("#chat .message-row");
     messageRows.forEach(row => {
       const content = row.querySelector(".message").innerHTML;
-      if (/^\d{7}$/.test(content) || /^[0]{0,3}\d{1,3},\d{3}[A-Z]{2,3}\d{2}$/.test(content)) {
+      if (
+  (/^\d{7}$/.test(content)) || 
+  (/^[0]{0,3}\d{1,3},\d{3}[A-Z]{2,3}\d{2}$/.test(content))
+) {
         numbers.push({
           content: content,
           time: row.querySelector(".message-time").textContent
